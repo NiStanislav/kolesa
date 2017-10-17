@@ -14,7 +14,7 @@
 	<%@include file="header.jsp" %>
 	<div class="main">
 	<center>
-		<h1>Kolesa.kz</h1>	
+		
 		
 	
 	<table>

@@ -82,16 +82,14 @@ public class NewPostServlet extends HttpServlet {
 	            		System.out.print("image input is empty");
 	            } else {
 	       
-	            		imageUrl = imgName +"."+filePart.getContentType().split("/")[1];
-	                System.out.print("imageUrl: " + imageUrl);
-	                
+	            	imageUrl = imgName +"."+filePart.getContentType().split("/")[1];
+	                System.out.print("imageUrl: " + imageUrl);  
 	                withImage = true;
-//	                newPost.setImage_url(imageUrl);
 	                S3Uploader s3Manager = new S3Uploader();
 	                s3Manager.uploadFile(imageUrl, inputStream);
 	            }
 	        }
-		    String filePath = "https://s3.amazonaws.com/sis-cloud/" + imgName +"."+filePart.getContentType().split("/")[1];
+		    String filePath = "https://s3.amazonaws.com/kolesa-images1/" + imgName +"."+filePart.getContentType().split("/")[1];
 		    if(title == null || title.equals("")){error+="Title is empty \n";}
 		    if(city == null || city.equals("")){error+="City is empty \n";}
 		    if(year == null || year.equals("")){error+="Yeear is empty \n";}

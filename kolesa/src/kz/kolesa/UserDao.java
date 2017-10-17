@@ -31,7 +31,6 @@ public class UserDao implements IUserDao
     public String getId(String username)
     {
     	try {
-    		
     	Statement st = connection.createStatement();
         String query = "Select id from users WHERE username = '"+username+"'";
         ResultSet rs = st.executeQuery(query);
@@ -98,6 +97,7 @@ public class UserDao implements IUserDao
             ResultSet rs = st.executeQuery(query);
             rs.next();
             User user = new User(rs.getString("username"),rs.getString("email"),rs.getString("password"),rs.getString("phone"));
+            System.out.print(user.getName());
             return user;
         }
         catch(Exception ex)

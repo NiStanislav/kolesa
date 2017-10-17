@@ -23,7 +23,7 @@
       <div class='welcome'>Login</div>
       <div class='subtitle'>Please sign up</div>
       <div class='input-fields'>
-	        <form action="login">
+	        <form action="login" method="post">
 	                <input type="text" placeholder="Username" name="username" class='input-line full-width'>
 	            <br>
 	                <input type="password" placeholder="Password" name="password" class='input-line full-width'>

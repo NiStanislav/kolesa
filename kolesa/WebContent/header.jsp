@@ -1,8 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <header>
-	<div>
-
+	
+<div>
+<img src="https://s3.amazonaws.com/sis-cloud/kolesa_logo.png" width="200px" style="position:absolute; left:30px"/>
+</div>
 <nav class="skew-menu">
   <ul>
     <li><a href="/kolesa/">Home</a></li>

@@ -21,11 +21,11 @@ import com.amazonaws.util.IOUtils;
 
 public class S3Uploader {
 
-		private String bucketName="sis-cloud";
+		private String bucketName="kolesa-images1";
 		private AmazonS3 s3client = null;
 		
 		public S3Uploader() {
-			this.bucketName ="sis-cloud";
+			this.bucketName ="kolesa-images1";
 			s3client = new AmazonS3Client(new ProfileCredentialsProvider().getCredentials());
 		}
 		
