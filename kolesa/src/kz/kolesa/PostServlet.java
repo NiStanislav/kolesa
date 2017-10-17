@@ -43,7 +43,7 @@ public class PostServlet extends HttpServlet {
 		catch(Exception ex)
 		{
 			PrintWriter out = response.getWriter();
-			out.print("This post is not exist!");
+			out.print("This post does not exist!");
 			return;
 		}
 		Post post = postDao.post(id);
@@ -60,6 +60,8 @@ public class PostServlet extends HttpServlet {
 		request.setAttribute("date", post.getDate());
 		request.setAttribute("views", post.getViews());
 		request.setAttribute("author", post.getAuthor());
+		request.setAttribute("price", post.getPrice());
+		request.setAttribute("description", post.getDescription());
 		request.getRequestDispatcher("/post.jsp").forward(request,response);
 	}
 

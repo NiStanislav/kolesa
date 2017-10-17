@@ -9,8 +9,8 @@ public class DBConnection
   {
      try
      {
-         Class.forName("com.mysql.jdbc.Driver");
-         con = DriverManager.getConnection("jdbc:mysql://localhost:3306/kolesa","root","");
+         Class.forName("org.postgresql.Driver");
+         con = DriverManager.getConnection("jdbc:postgresql://localhost:5433/sis-enterprise", "postgres", "12345");
          st = con.createStatement();
 
      }

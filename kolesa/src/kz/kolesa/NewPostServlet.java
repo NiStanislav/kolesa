@@ -14,6 +14,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
+
+
 @WebServlet("/new")
 @MultipartConfig
 public class NewPostServlet extends HttpServlet {
@@ -53,6 +55,8 @@ public class NewPostServlet extends HttpServlet {
 		 	String color = req.getParameter("color");
 		 	String drive = req.getParameter("drive");
 		 	String state = req.getParameter("state"); 	
+		 	String price = req.getParameter("price");
+		 	String description = req.getParameter("description");
 		    Part filePart = req.getPart("file");
 		    File uploads = new File("C://upload/");
 		    File file = new File(uploads, title+".jpeg");
@@ -80,7 +84,14 @@ public class NewPostServlet extends HttpServlet {
 		    	{
 		    		author = session.getAttribute("name").toString();
 		    	}
-				int id = postDao.newPost(new Post(title,city,year,capacity,mileage,color,drive,state,filePath,author));
+				int id = postDao.newPost(new Post(title,city,year,capacity,mileage,color,drive,state,filePath,author,price, description));
+				if(id==0)
+				{
+ 					error+="Post exist!";
+ 					req.setAttribute("error",error);
+ 					req.getRequestDispatcher("/new.jsp").forward(req,response);
+ 					return;
+ 				}
 				postDao.usersPost(author,id);
 				req.setAttribute("id", id);
 				req.getRequestDispatcher("/post").forward(req,response);

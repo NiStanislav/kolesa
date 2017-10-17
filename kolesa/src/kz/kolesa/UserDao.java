@@ -61,7 +61,7 @@ public class UserDao implements IUserDao
             	String query1 = "Select * from posts WHERE id = '"+rs.getString("postId")+"'";
             	rs1 = st.executeQuery(query1);
             	rs1.next();
-            	posts.add(new Post(rs1.getString("title"),rs1.getString("city"),rs1.getString("year"),rs1.getString("capacity"),rs1.getString("mileage"),rs1.getString("color"),rs1.getString("drive"),rs1.getString("state"),rs1.getString("image"),rs1.getString("author")));
+            	posts.add(new Post(rs1.getString("title"),rs1.getString("city"),rs1.getString("year"),rs1.getString("capacity"),rs1.getString("mileage"),rs1.getString("color"),rs1.getString("drive"),rs1.getString("state"),rs1.getString("image"),rs1.getString("author"),rs.getString("price"),rs.getString("description")));
             }
             return posts;
         }

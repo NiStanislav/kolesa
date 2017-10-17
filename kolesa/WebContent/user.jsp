@@ -5,10 +5,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
+<link type="text/css" rel="stylesheet" href="./css/styles.css" />
 </head>
 <body>
  <a href="index.jsp">Back</a>
 	<%@include file="header.jsp" %>
+		<div class="main">
  	<center>
         <table border="1" width="30%" cellpadding="5">
             <thead>
@@ -31,5 +33,7 @@
             
         </table>
     </center>
+    </div>
+    	<%@include file="footer.jsp" %>
 </body>
 </html>

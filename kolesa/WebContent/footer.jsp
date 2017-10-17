@@ -1,12 +1,15 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
-</head>
-<body>
-	footer
-</body>
-</html>
+<footer>
+
+<div class="footer-menu-soc_items">
+<ul class="footer-menu">
+	<li class="footer-menu__item">
+	<a href="https://kolesa.kz/" target="_blank" class="footer-menu__link">Original</a></li>
+	<li class="footer-menu__item"><a href="about.jsp" class="footer-menu__link">About us</a></li>
+	<li class="footer-menu__item"><a href="login.jsp">Login</a></li>
+	<li class="footer-menu__item"><a href="reg.jsp">Register</a></li>
+	<li class="footer-menu__item">	<a href="new.jsp">New Post</a></li>
+</ul>
+</div>
+
+
+</footer>
