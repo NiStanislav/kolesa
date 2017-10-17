@@ -5,11 +5,21 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>KBTU</title>
+<link type="text/css" rel="stylesheet" href="./css/styles.css" />
+<link type="text/css" rel="stylesheet" href="./css/about.css" />
 </head>
 <body>
 <%@include file="header.jsp" %>
+<div class="main">
 <center>
-	We are students of Enterprise Level Application 
+	
+<blockquote>
+This project was made by 
+<em>Stas and Aizhan</em>
+<cite>KBTU, 2017</cite>
+</blockquote>
 </center>
+</div>
+<%@include file="footer.jsp" %>
 </body>
 </html>

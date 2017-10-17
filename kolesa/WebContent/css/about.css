@@ -1,0 +1,52 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,100,500);
+html, body{
+	
+  font-family: roboto;
+}
+blockquote {
+ font-family: "Rokkitt";
+ font-size: 5.5vw;
+ text-align: center;
+}
+
+em, cite {
+ font-style: normal;
+ display: block;
+}
+
+em {
+ font-family: "Monoton";
+ text-transform: uppercase;
+}
+
+cite {
+ font-size: 40%;
+}
+
+/* Apply colors */
+em {
+ color: tomato;
+}
+cite {
+ color: silver;
+}
+
+
+blockquote {
+ line-height: 1;
+}
+em {
+ font-size: 150%;
+ margin-top: .2em;
+ letter-spacing: -0.02em;
+}
+cite{
+ margin-top: 1em;
+}
+
+
+/* Last! Add any decoration */
+em {
+ border-bottom: 1.1vw double tomato;
+ padding-bottom: 0.1em;
+}

@@ -5,20 +5,38 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Login</title>
+<link type="text/css" rel="stylesheet" href="./css/styles.css" />
+<link type="text/css" rel="stylesheet" href="./css/reg.css" />
 </head>
 <body>
 	<%@include file="header.jsp" %>
-    <center>
-        <div style="color: #FF0000;">${error}</div>
-        <form action="login">
-                <label>Username:</label>
-                <input type="text" name="username">
-            <br>
-                <label>Password:</label>
-                <input type="password" name="password">
-            <br>
-                <input type="submit" value="submit">
-        </form>
-    </center>
+	<div class="main">
+	    <center>
+	    
+	        <div style="color: #FF0000;">${error}</div>
+	        	
+	<div class='bold-line'></div>
+<div class='container'>
+  <div class='window'>
+    <div class='overlay'></div>
+    <div class='content'>
+      <div class='welcome'>Login</div>
+      <div class='subtitle'>Please sign up</div>
+      <div class='input-fields'>
+	        <form action="login">
+	                <input type="text" placeholder="Username" name="username" class='input-line full-width'>
+	            <br>
+	                <input type="password" placeholder="Password" name="password" class='input-line full-width'>
+	            <br>
+	                <input type="submit" value="submit" class='ghost-round full-width'>
+	        </form>
+	
+    </div>
+  </div>
+</div>
+	    </center>
+     
+</div>
+    	<%@include file="footer.jsp" %>
 </body>
 </html>

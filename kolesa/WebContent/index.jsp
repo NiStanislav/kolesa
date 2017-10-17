@@ -7,25 +7,27 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Kolesa.kz</title>
+<link type="text/css" rel="stylesheet" href="./css/styles.css" />
 </head>
 <body>
    
 	<%@include file="header.jsp" %>
+	<div class="main">
 	<center>
-		<h1>Kolesa.kz!</h1>	
+		<h1>Kolesa.kz</h1>	
 		
 	
 	<table>
 			<c:forEach items="${topPosts}" var="a" varStatus="cnt">
-				<c:if test = "${ cnt.index % 4 == 0 }">
+				<c:if test = "${ cnt.index % 3 == 0 }">
     				<tr>
 				</c:if>
 					<td>
-					<a target="blank" href='new?id=<c:out value="${a.id}" />'>
+					<a class="card-link" target="blank" href='new?id=<c:out value="${a.id}" />'>
 					   <div class="card">
 					       <div class="image">
                                 
-                                    <img src="${a.image }"  width="189" height="255" />
+                                    <img src="${a.image }"  width="255" height="255" />
                                 
 					       
 					       </div>
@@ -40,7 +42,7 @@
 					
 					</td>
 	
-   	            <c:if test = "${ cnt.last ||  cnt.index % 4 == 3 }">
+   	            <c:if test = "${ cnt.last ||  cnt.index % 3 == 2 }">
     				</tr>
                 </c:if>
     
@@ -48,6 +50,7 @@
 			</c:forEach>
 		</table>
 	</center>
+	</div>
 	<%@include file="footer.jsp" %>
 </body>
 </html>

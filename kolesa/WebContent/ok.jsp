@@ -5,13 +5,19 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Registration</title>
+<link type="text/css" rel="stylesheet" href="./css/styles.css" />
 </head>
 <body>
 <%@include file="header.jsp" %>
+<div class="main">
 	<center>
-		 <h1>Your registration is done!</h1>
-		 <a href='login.jsp'>login</a>
-		 <a href="/kolesa/">home</a>
+	<div class="card">
+		 <h1>Thank you for registration</h1>
+		 <a class="back-link" href='login.jsp'>login</a>
+		 <a class="back-link" href="/kolesa/">home</a>
+	</div>
 	</center>
+</div>
+<%@include file="footer.jsp" %>
 </body>
 </html>

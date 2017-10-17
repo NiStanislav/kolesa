@@ -1,0 +1,179 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,100,500);
+html, body{
+	
+  font-family: roboto;
+}
+header{
+	display: block;
+	color: black;
+    background-color: white;
+}
+
+
+header a {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer
+}
+.skew-menu {
+  text-align: center;
+  margin-top: 2em;
+}
+
+.skew-menu ul {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.skew-menu ul li {
+  background: #fff;
+  float: left;
+  border-right: 1px solid #eee;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  text-transform: uppercase;
+  color: #555;
+  font-weight: bolder;
+  transition: all 0.3s linear;
+}
+.skew-menu ul li:first-child {
+  border-radius: 7px 0 0 7px;
+}
+.skew-menu ul li:last-child {
+  border-right: none;
+  border-radius: 0 7px 7px 0;
+}
+.skew-menu ul li:hover {
+  background: #eee;
+  color: tomato;
+}
+.skew-menu ul li a {
+  display: block;
+  padding: 1em 2em;
+  color: inherit;
+  text-decoration: none;
+}
+
+header .header-list {
+    position: absolute;
+    display: inline;
+    list-style: none;
+    top: 10px;
+    right: 40px;
+}
+header .header-list li{
+	display: inline-block;
+}
+header .new-post{
+	background-color: #9ECAFF;
+    padding: 10px;
+    border-radius: 20px;
+}
+
+header .header-registration_sub-menu :after, .header-registration_sub-menu :before {
+    content: "";
+    display: inline;
+    border-style: solid;
+    border-width: 10px;
+    position: absolute;
+    left: 50%;
+    margin-left: -10px;
+}
+
+header .header-registration_sub-menu :before {
+    border-color: transparent transparent #fff;
+    top: -20px;
+    z-index: 99;
+}
+
+header .header-registration_sub-menu :after {
+    border-color: transparent transparent #e7e6e6;
+    top: -21.5px;
+    z-index: 98;
+}
+header .list-inline {
+    padding-left: 0;
+    list-style: none;
+}
+header .list-inline>li {
+    display: inline-block;
+    padding-right: 5px;
+    padding-left: 5px;
+}
+header .modal_dropdown-content {
+    display: block;
+    position: absolute;
+    background-color: #fff;
+	width: 95%;
+    left: 2.5%;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,.2);
+    z-index: 5;
+    text-align: center;
+    min-height: 60px;
+    top: 7em;
+    border: 1px solid;
+    border-color: #e7e6e6;
+}
+div.main{
+	margin-top: 100px;
+	min-height: 600px;
+}
+
+
+.card {
+    background: #fff;
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,.04);
+    border-radius: 1px;
+    transition: box-shadow .3s;
+    border: 1px solid hsla(240,7%,97%,.81);
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+.card-hover :hover {
+	cursor: poiner;
+    box-shadow: 0 1px 5px 2.5px #dad8d8;
+}
+
+.content {
+    padding: 10px;
+    line-height: 30px;
+}
+a.card-link{
+	text-decoration: none;
+	cursor: pointer;
+	color: black;
+}
+a.back-link{
+	cursor: pointer;
+	padding: 5px 10px;
+	border: 1px solid black;
+	border-radius: 20px;
+	text-decoration: none;
+	color: black;
+}
+
+footer{
+	margin-top: 50px;
+	background-color: black;
+	padding: 30px 0;
+	text-align: center;	
+}
+
+footer .footer-menu {
+    position: relative;
+    padding-bottom: 10px;
+}
+.footer-menu__item {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 30px;
+    position: relative;
+    z-index: 1;
+    
+}
+.footer-menu__item a{
+	color: white;
+	cursor: pointer;
+    text-decoration: none;
+}

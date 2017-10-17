@@ -9,8 +9,9 @@ public class DBConnection
   {
      try
      {
-         Class.forName("com.mysql.jdbc.Driver");
-         con = DriverManager.getConnection("jdbc:mysql://localhost:3306/kolesa","root","");
+    	 
+         Class.forName("org.postgresql.Driver");
+         con = DriverManager.getConnection("jdbc:postgresql://kolesa-db1.cd8jkv82t8hq.us-east-2.rds.amazonaws.com:5432/kolesadb", "adminkolesa", "adminkolesa");
          st = con.createStatement();
 
      }

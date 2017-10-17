@@ -1,6 +1,7 @@
 package kz.kolesa;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -36,6 +37,8 @@ public class UserServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String id = request.getParameter("id");
 		User user = userDao.getUser(id);
+		ArrayList<Post> posts = userDao.userPosts(id);
+		request.setAttribute("posts", posts);
 		request.setAttribute("username", user.getName());
 		request.setAttribute("phone", user.getPhone());
 		request.setAttribute("email", user.getEmail());

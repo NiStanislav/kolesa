@@ -21,7 +21,7 @@ public class PostDao implements IPostDao{
         String query = "Select * from posts WHERE id='"+id+"'";
         ResultSet rs = st.executeQuery(query);
         rs.next();
-        Post post = new Post(rs.getString("title"),rs.getString("city"),rs.getString("year"),rs.getString("capacity"),rs.getString("mileage"),rs.getString("color"),rs.getString("drive"),rs.getString("state"),rs.getString("image"),rs.getString("author"));
+        Post post = new Post(rs.getString("title"),rs.getString("city"),rs.getString("year"),rs.getString("capacity"),rs.getString("mileage"),rs.getString("color"),rs.getString("drive"),rs.getString("state"),rs.getString("image"),rs.getString("author"),rs.getString("price"),rs.getString("description"),rs.getString("authorId"));
         post.setDate(rs.getString("date"));
         post.setViews(rs.getString("views"));
         return post;
@@ -119,14 +119,14 @@ public class PostDao implements IPostDao{
     	try
         {
     		 Statement st1 = connection.createStatement();
-             String query1 = "Select * from posts WHERE title='"+post.getTitle()+"' OR description='"+post.getDescription()"'";
+             String query1 = "Select * from posts WHERE title='"+post.getTitle()+"' OR description='"+post.getDescription()+ "'";
              ResultSet rs1 = st1.executeQuery(query1);
              if(rs1.next()) { return 0;}
              st1.close();
              rs1.close();
-    		
-    		
-            PreparedStatement preparedStatement = (PreparedStatement) connection.prepareStatement("INSERT INTO posts (title,city,year,capacity,mileage,color,drive,state,image,author)VALUES(?,?,?,?,?,?,?,?,?,?)");
+ 		
+	
+            PreparedStatement preparedStatement = (PreparedStatement) connection.prepareStatement("INSERT INTO posts (title,city,year,capacity,mileage,color,drive,state,image,author,price,description,authorId)VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)");
             preparedStatement.setString(1,post.getTitle());
             preparedStatement.setString(2,post.getCity());
             preparedStatement.setString(3,post.getYear());
@@ -137,6 +137,9 @@ public class PostDao implements IPostDao{
             preparedStatement.setString(8,post.getState());
             preparedStatement.setString(9,post.getImage());
             preparedStatement.setString(10,post.getAuthor());
+            preparedStatement.setString(11,post.getPrice());
+            preparedStatement.setString(12,post.getDescription());
+            preparedStatement.setString(13,post.getAuthorId());
             preparedStatement.executeUpdate();
             preparedStatement.close();
             

@@ -52,17 +52,13 @@ public class UserDao implements IUserDao
         try
         {
             Statement st = connection.createStatement();
-            String query = "Select postId from usersposts WHERE userId = '"+id+"'";
+            String query = "Select * from posts WHERE authorId = '"+id+"'";
             ResultSet rs = st.executeQuery(query);
-            ResultSet rs1;
             while(rs.next())
             {
-            	System.out.print(rs.getString("postId"));
-            	String query1 = "Select * from posts WHERE id = '"+rs.getString("postId")+"'";
-            	rs1 = st.executeQuery(query1);
-            	rs1.next();
-            	posts.add(new Post(rs1.getString("title"),rs1.getString("city"),rs1.getString("year"),rs1.getString("capacity"),rs1.getString("mileage"),rs1.getString("color"),rs1.getString("drive"),rs1.getString("state"),rs1.getString("image"),rs1.getString("author")));
+            	posts.add(new Post(rs.getString("title"),rs.getString("city"),rs.getString("year"),rs.getString("capacity"),rs.getString("mileage"),rs.getString("color"),rs.getString("drive"),rs.getString("state"),rs.getString("image"),rs.getString("author"),rs.getString("price"),rs.getString("description"),rs.getString("authorId")));
             }
+            
             return posts;
         }
         catch(Exception ex)

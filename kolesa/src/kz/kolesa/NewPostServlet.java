@@ -36,14 +36,14 @@ public class NewPostServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String id = request.getParameter("id"); 
+		
 		request.setAttribute("id", id);
 		request.getRequestDispatcher("/post").forward(request,response);
 	}
 
 	
 	protected void doPost(HttpServletRequest req, HttpServletResponse response) throws ServletException, IOException {
-		
-		
+	
 			String error = "";
 		 	String title = req.getParameter("title"); 
 		 	String city = req.getParameter("city");
@@ -53,17 +53,45 @@ public class NewPostServlet extends HttpServlet {
 		 	String color = req.getParameter("color");
 		 	String drive = req.getParameter("drive");
 		 	String state = req.getParameter("state"); 	
+		 	String price = req.getParameter("price");
+		 	String description = req.getParameter("description");
+		 	String authorId = req.getParameter("authorId");
 		    Part filePart = req.getPart("file");
-		    File uploads = new File("C://upload/");
-		    File file = new File(uploads, title+".jpeg");
-		    try (InputStream input = filePart.getInputStream()) {
-		        Files.copy(input, file.toPath());
-		    }
-		    catch(Exception ex)
-		    {
-		    	error+="File uploading error \n";
-		    }
-		    String filePath = "c://upload/" + title +".jpeg";
+//		    File uploads = new File("C://upload/");
+//		    File file = new File(uploads, title+".jpeg");
+//		    try (InputStream input = filePart.getInputStream()) {
+//		        Files.copy(input, file.toPath());
+//		    }
+//		    catch(Exception ex)
+//		    {
+//		    	error+="File uploading error \n";
+//		    }
+		    
+		    boolean withImage = false;
+			String imageUrl = "";
+			String imgName = filePart.getName()+ Math.random();
+	        if (filePart != null) {
+	            System.out.println(filePart.getName());
+	            System.out.println(filePart.getSize());
+	            System.out.println(filePart.getContentType());
+	            System.out.println(filePart.getContentType().split("/")[1]);
+	            
+	            InputStream inputStream = filePart.getInputStream();
+	            
+	            if(filePart.getContentType().split("/")[0].equals("application")) {
+	            		System.out.print("image input is empty");
+	            } else {
+	       
+	            		imageUrl = imgName +"."+filePart.getContentType().split("/")[1];
+	                System.out.print("imageUrl: " + imageUrl);
+	                
+	                withImage = true;
+//	                newPost.setImage_url(imageUrl);
+	                S3Uploader s3Manager = new S3Uploader();
+	                s3Manager.uploadFile(imageUrl, inputStream);
+	            }
+	        }
+		    String filePath = "https://s3.amazonaws.com/sis-cloud/" + imgName +"."+filePart.getContentType().split("/")[1];
 		    if(title == null || title.equals("")){error+="Title is empty \n";}
 		    if(city == null || city.equals("")){error+="City is empty \n";}
 		    if(year == null || year.equals("")){error+="Yeear is empty \n";}
@@ -80,14 +108,14 @@ public class NewPostServlet extends HttpServlet {
 		    	{
 		    		author = session.getAttribute("name").toString();
 		    	}
-				int id = postDao.newPost(new Post(title,city,year,capacity,mileage,color,drive,state,filePath,author));
+				int id = postDao.newPost(new Post(title,city,year,capacity,mileage,color,drive,state,filePath,author, price, description,authorId));
 				if(id==0)
 				{
-					error+="Post exist!";
-					req.setAttribute("error",error);
-					req.getRequestDispatcher("/new.jsp").forward(req,response);
-					return;
-				}
+ 					error+="Post exist!";
+ 					req.setAttribute("error",error);
+ 					req.getRequestDispatcher("/new.jsp").forward(req,response);
+ 					return;
+ 				}
 				postDao.usersPost(author,id);
 				req.setAttribute("id", id);
 				req.getRequestDispatcher("/post").forward(req,response);

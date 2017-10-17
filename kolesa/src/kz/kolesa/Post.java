@@ -14,9 +14,13 @@ public class Post {
 	private String author;
 	private String views;
 	private String date;
+	private String price;
+	private String description;
+	private String authorId;
 
-	public Post(String title, String city, String year, String capacity, String mileage, String color, String drive, String state, String image, String author) {
+	public Post(String title, String city, String year, String capacity, String mileage, String color, String drive, String state, String image, String author,String price, String description,String authorId) {
 		this.title = title;
+		this.authorId = authorId;
 		this.city = city;
 		this.year = year;
 		this.capacity = capacity;
@@ -26,12 +30,24 @@ public class Post {
 		this.state = state;
 		this.image = image;
 		this.author = author;
+		this.price = price;
+		this.description = description;
 	}
 	
 	public Post(String title,String image, String id) {
 		this.title = title;
 		this.image = image;
 		this.id = id;
+	}
+	
+	public String getAuthorId()
+	{
+		return authorId;
+	}
+	
+	public String getPrice()
+	{
+		return price;
 	}
 	
 	public void setId(String id)
@@ -102,5 +118,13 @@ public class Post {
 
 	public String getAuthor() {
 		return author;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
 }
