@@ -28,15 +28,15 @@
     	
     		<div style="color: #FF0000;">${error}</div>
 
-	    	<input type="text" name="username" placeholder="Username" class='input-line full-width'>
+	    	<input type="text" required="true" name="username" placeholder="Username" class='input-line full-width'>
 	    	<br>
-	    	<input type="text" name="email" placeholder="Email" class='input-line full-width'>
+	    	<input type="email" required="true" name="email" placeholder="Email" class='input-line full-width'>
 	    	<br>
-	    	<input type="text" name="phone" placeholder="Phone" class='input-line full-width'>
+	    	<input type="text" required="true" name="phone" placeholder="Phone" class='input-line full-width'>
 	    	<br>
-	    	<input type="password" name="password" placeholder="Password" class='input-line full-width'>
+	    	<input type="password" required="true" name="password" placeholder="Password" class='input-line full-width'>
 	    	<br>
-		<input type="password" name="password1" placeholder="Confirm password" class='input-line full-width'>
+		<input type="password" required="true" name="password1" placeholder="Confirm password" class='input-line full-width'>
    		<br>
     	<input type="submit" value="submit" class='ghost-round full-width'>
 	</form>

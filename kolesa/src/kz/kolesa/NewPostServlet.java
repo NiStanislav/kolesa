@@ -14,8 +14,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
-
-
 @WebServlet("/new")
 @MultipartConfig
 public class NewPostServlet extends HttpServlet {
@@ -38,14 +36,14 @@ public class NewPostServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String id = request.getParameter("id"); 
+		
 		request.setAttribute("id", id);
 		request.getRequestDispatcher("/post").forward(request,response);
 	}
 
 	
 	protected void doPost(HttpServletRequest req, HttpServletResponse response) throws ServletException, IOException {
-		
-		
+	
 			String error = "";
 		 	String title = req.getParameter("title"); 
 		 	String city = req.getParameter("city");

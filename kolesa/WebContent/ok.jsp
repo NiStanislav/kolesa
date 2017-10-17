@@ -11,9 +11,11 @@
 <%@include file="header.jsp" %>
 <div class="main">
 	<center>
+	<div class="card">
 		 <h1>Thank you for registration</h1>
-		 <a href='login.jsp'>login</a>
-		 <a href="/kolesa/">home</a>
+		 <a class="back-link" href='login.jsp'>login</a>
+		 <a class="back-link" href="/kolesa/">home</a>
+	</div>
 	</center>
 </div>
 <%@include file="footer.jsp" %>
