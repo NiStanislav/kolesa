@@ -126,7 +126,7 @@ public class PostDao implements IPostDao{
              rs1.close();
  		
 	
-            PreparedStatement preparedStatement = (PreparedStatement) connection.prepareStatement("INSERT INTO posts (title,city,year,capacity,mileage,color,drive,state,image,author)VALUES(?,?,?,?,?,?,?,?,?,?)");
+            PreparedStatement preparedStatement = (PreparedStatement) connection.prepareStatement("INSERT INTO posts (title,city,year,capacity,mileage,color,drive,state,image,author,price,description)VALUES(?,?,?,?,?,?,?,?,?,?,?,?)");
             preparedStatement.setString(1,post.getTitle());
             preparedStatement.setString(2,post.getCity());
             preparedStatement.setString(3,post.getYear());
@@ -137,6 +137,8 @@ public class PostDao implements IPostDao{
             preparedStatement.setString(8,post.getState());
             preparedStatement.setString(9,post.getImage());
             preparedStatement.setString(10,post.getAuthor());
+            preparedStatement.setString(11,post.getPrice());
+            preparedStatement.setString(12,post.getDescription());
             preparedStatement.executeUpdate();
             preparedStatement.close();
             
