@@ -25,7 +25,6 @@
             <input type="radio" name="order" value="capacity"> Capacity
             <input type="radio" name="order" value="year"> Year
             <input type="radio" name="order" value="date"> Date
-            <input type="checkbox" name="order" value="year"> Year
             <input type="submit" value="Search">
       </form>
       	<a href="new.jsp">New Post</a>

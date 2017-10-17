@@ -118,6 +118,14 @@ public class PostDao implements IPostDao{
     {
     	try
         {
+    		 Statement st1 = connection.createStatement();
+             String query1 = "Select * from posts WHERE title='"+post.getTitle()+"' OR description='"+post.getDescription()"'";
+             ResultSet rs1 = st1.executeQuery(query1);
+             if(rs1.next()) { return 0;}
+             st1.close();
+             rs1.close();
+    		
+    		
             PreparedStatement preparedStatement = (PreparedStatement) connection.prepareStatement("INSERT INTO posts (title,city,year,capacity,mileage,color,drive,state,image,author)VALUES(?,?,?,?,?,?,?,?,?,?)");
             preparedStatement.setString(1,post.getTitle());
             preparedStatement.setString(2,post.getCity());

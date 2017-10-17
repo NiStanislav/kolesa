@@ -81,6 +81,13 @@ public class NewPostServlet extends HttpServlet {
 		    		author = session.getAttribute("name").toString();
 		    	}
 				int id = postDao.newPost(new Post(title,city,year,capacity,mileage,color,drive,state,filePath,author));
+				if(id==0)
+				{
+					error+="Post exist!";
+					req.setAttribute("error",error);
+					req.getRequestDispatcher("/new.jsp").forward(req,response);
+					return;
+				}
 				postDao.usersPost(author,id);
 				req.setAttribute("id", id);
 				req.getRequestDispatcher("/post").forward(req,response);
